@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  --navheight: 60px;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+//scroll bar
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.container {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - var(--navheight));
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 1024px) {
+  * {
+    --navheight: 50px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    height: calc(100vh - var(--navheight));
+    overflow: hidden;
+  }
+}
+
+@import "./nav";
+@import "./map";
+@import "./list";
+@import "./card";
+@import "./marker";

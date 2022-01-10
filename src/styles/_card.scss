@@ -1,0 +1,222 @@
+.cardContainer {
+  --backGroundColor: rgb(46, 146, 146);
+  width: 100%;
+  min-width: 280px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .restaurantImg {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    aspect-ratio: 5/3;
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+  .rating {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--backGroundColor);
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    svg {
+      color: #ebde2f;
+    }
+  }
+  .details {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .restaurantName {
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+
+    .tagContainer {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+
+      .tag {
+        padding: 3px 5px;
+        background-color: var(--backGroundColor);
+        border-radius: 20px;
+        letter-spacing: 2px;
+        font-size: 14px;
+        color: white;
+      }
+    }
+    .restaurantStatus {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      list-style-type: none;
+      .specialText {
+        color: #103d39;
+        font-weight: bold;
+        letter-spacing: 2px;
+        font-style: italic;
+      }
+    }
+    .restaurantInfo {
+      list-style-type: none;
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .infoList {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5px;
+        font-size: 18px;
+        .subtitle {
+          font-size: 18px;
+          font-weight: bold;
+          letter-spacing: 1px;
+        }
+      }
+      .contact {
+        font-size: 14px;
+        svg {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  .actionContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    .action {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      gap: 3px;
+      letter-spacing: 1px;
+      svg {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .cardContainer {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+
+    .restaurantImg {
+      aspect-ratio: 16/9;
+    }
+
+    .details {
+      padding: 5px;
+      gap: 5px;
+      .restaurantName {
+        font-size: 16px;
+      }
+
+      .tagContainer {
+        .tag {
+          letter-spacing: 1px;
+        }
+      }
+      .restaurantStatus {
+        .specialText {
+          font-size: 16px;
+        }
+      }
+      .restaurantInfo {
+        gap: 5px;
+
+        .infoList {
+          font-size: 14px;
+          .subtitle {
+            font-size: 14px;
+            display: none;
+          }
+        }
+      }
+    }
+    .actionContainer {
+      padding: 0 5px;
+      .action {
+        gap: 3px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .cardContainer {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    .restaurantImg {
+      aspect-ratio: 16/9;
+    }
+
+    .details {
+      padding: 5px;
+      gap: 5px;
+      .restaurantName {
+        font-size: 14px;
+      }
+
+      .tagContainer {
+        .tag {
+          letter-spacing: 1px;
+          font-size: 12px;
+        }
+      }
+      .restaurantStatus {
+        .specialText {
+          font-size: 14px;
+        }
+      }
+      .restaurantInfo {
+        gap: 5px;
+
+        .infoList {
+          font-size: 14px;
+        }
+      }
+    }
+    .actionContainer {
+      padding: 0 5px;
+      .action {
+        gap: 3px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .cardContainer {
+    .restaurantImg {
+      aspect-ratio: 20/9;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.mapContainer {
+  flex: 2;
+  height: calc(100vh - var(--navheight));
+  .markerContainer {
+    position: relative;
+    svg {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .mapContainer {
+    .markerContainer {
+      svg {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 780px) {
+  .mapContainer {
+    flex: 1;
+  }
+}

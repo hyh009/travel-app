@@ -1,0 +1,155 @@
+.listContainer {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: scroll;
+
+  .title {
+    font-size: 3.5vmin;
+  }
+  .progressContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - var(--navheight));
+    .css-18lrjg1-MuiCircularProgress-root {
+      color: rgb(46, 146, 146);
+    }
+  }
+  .filterContainer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 20px;
+    .filter {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      .filterSelect {
+        border: none;
+        border-bottom: 1px solid black;
+        padding: 5px;
+        cursor: pointer;
+      }
+      .filterTitle {
+        font-size: 1.5vmin;
+        color: gray;
+        margin-left: 5px;
+      }
+    }
+  }
+  .placeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  .listNotFound {
+    height: calc(100% - var(--navheight));
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+
+    .notFoundText {
+      font-size: 4vmin;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+    .notFoundImg {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .listContainer {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    flex: 2;
+    align-items: flex-start;
+    min-width: 100%;
+    gap: 0;
+
+    .title {
+      flex: 1;
+      position: sticky;
+      top: 0;
+      left: 0;
+    }
+
+    .filterContainer {
+      flex: 1;
+      position: sticky;
+      top: 0;
+      left: 0;
+
+      .filter {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+    .placeContainer {
+      flex-direction: row;
+      flex: 10;
+      align-items: center;
+      gap: 20px;
+      height: 100%;
+      flex-direction: row;
+      width: max-content;
+
+      .cardOutside {
+        max-width: 280px;
+        height: 90%;
+      }
+    }
+    .listNotFound {
+      width: 100vw;
+
+      .notFoundImg {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .listContainer {
+    padding: 20px 0px;
+    gap: 10px;
+    padding: 5px;
+    justify-content: space-around;
+
+    .title {
+      margin: 0;
+      padding-left: 5px;
+      font-size: 4.5vmin;
+    }
+
+    .filterContainer {
+      .filter {
+        .filterSelect {
+          padding: 0;
+        }
+        .filterTitle {
+          font-size: 10px;
+        }
+      }
+    }
+
+    .placeContainer {
+      .cardOutside {
+        width: calc(100vw - 10px);
+        height: 100%;
+        padding: 0;
+      }
+    }
+  }
+}

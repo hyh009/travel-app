@@ -1,0 +1,750 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  --navheight: 60px;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: calc(100vh - var(--navheight));
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 1024px) {
+  * {
+    --navheight: 50px;
+  }
+  .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    width: 100%;
+    height: calc(100vh - var(--navheight));
+    overflow: hidden;
+  }
+}
+
+.navContainer {
+  height: var(--navheight);
+  padding: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #242424;
+  color: white;
+}
+
+.navContainer .left .logo {
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.navContainer .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+
+.navContainer .right .searchLabel {
+  letter-spacing: 0.5px;
+}
+
+.navContainer .right .inputContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2px;
+  border-radius: 5px;
+  background-color: #464646;
+}
+
+.navContainer .right .inputContainer:hover {
+  background-color: #555454;
+}
+
+.navContainer .right .inputContainer svg {
+  font-size: 18px;
+}
+
+.navContainer .right .inputContainer .search {
+  padding: 3px;
+  border: none;
+  background-color: inherit;
+  letter-spacing: 0.5px;
+}
+
+@media only screen and (max-width: 780px) {
+  .navContainer .left .logo {
+    font-size: 3.5vmin;
+    letter-spacing: 1px;
+  }
+  .navContainer .right {
+    gap: 10px;
+  }
+  .navContainer .right .searchLabel {
+    display: none;
+  }
+  .navContainer .right .inputContainer .search {
+    padding: 0;
+    width: 100px;
+  }
+}
+
+.mapContainer {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  height: calc(100vh - var(--navheight));
+}
+
+.mapContainer .markerContainer {
+  position: relative;
+}
+
+.mapContainer .markerContainer svg {
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  .mapContainer .markerContainer svg {
+    font-size: 1.25rem;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .mapContainer {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+}
+
+.listContainer {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 15px;
+  overflow-y: scroll;
+}
+
+.listContainer .title {
+  font-size: 3.5vmin;
+}
+
+.listContainer .progressContainer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: calc(100% - var(--navheight));
+}
+
+.listContainer .progressContainer .css-18lrjg1-MuiCircularProgress-root {
+  color: #2e9292;
+}
+
+.listContainer .filterContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+
+.listContainer .filterContainer .filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 5px;
+}
+
+.listContainer .filterContainer .filter .filterSelect {
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.listContainer .filterContainer .filter .filterTitle {
+  font-size: 1.5vmin;
+  color: gray;
+  margin-left: 5px;
+}
+
+.listContainer .placeContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+}
+
+.listContainer .listNotFound {
+  height: calc(100% - var(--navheight));
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+  gap: 10px;
+}
+
+.listContainer .listNotFound .notFoundText {
+  font-size: 4vmin;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.listContainer .listNotFound .notFoundImg {
+  width: 100%;
+}
+
+@media only screen and (max-width: 1024px) {
+  .listContainer {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    min-width: 100%;
+    gap: 0;
+  }
+  .listContainer .title {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+  }
+  .listContainer .filterContainer {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+  }
+  .listContainer .filterContainer .filter {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .listContainer .placeContainer {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-flex: 10;
+        -ms-flex: 10;
+            flex: 10;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 20px;
+    height: 100%;
+    flex-direction: row;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  .listContainer .placeContainer .cardOutside {
+    max-width: 280px;
+    height: 90%;
+  }
+  .listContainer .listNotFound {
+    width: 100vw;
+  }
+  .listContainer .listNotFound .notFoundImg {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .listContainer {
+    padding: 20px 0px;
+    gap: 10px;
+    padding: 5px;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .listContainer .title {
+    margin: 0;
+    padding-left: 5px;
+    font-size: 4.5vmin;
+  }
+  .listContainer .filterContainer .filter .filterSelect {
+    padding: 0;
+  }
+  .listContainer .filterContainer .filter .filterTitle {
+    font-size: 10px;
+  }
+  .listContainer .placeContainer .cardOutside {
+    width: calc(100vw - 10px);
+    height: 100%;
+    padding: 0;
+  }
+}
+
+.cardContainer {
+  --backGroundColor: rgb(46, 146, 146);
+  width: 100%;
+  min-width: 280px;
+  border-radius: 10px;
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.cardContainer .restaurantImg {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  aspect-ratio: 5/3;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
+}
+
+.cardContainer .rating {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--backGroundColor);
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  letter-spacing: 1px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cardContainer .rating svg {
+  color: #ebde2f;
+}
+
+.cardContainer .details {
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+.cardContainer .details .restaurantName {
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.cardContainer .details .tagContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.cardContainer .details .tagContainer .tag {
+  padding: 3px 5px;
+  background-color: var(--backGroundColor);
+  border-radius: 20px;
+  letter-spacing: 2px;
+  font-size: 14px;
+  color: white;
+}
+
+.cardContainer .details .restaurantStatus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style-type: none;
+}
+
+.cardContainer .details .restaurantStatus .specialText {
+  color: #103d39;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-style: italic;
+}
+
+.cardContainer .details .restaurantInfo {
+  list-style-type: none;
+  gap: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+.cardContainer .details .restaurantInfo .infoList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 5px;
+  font-size: 18px;
+}
+
+.cardContainer .details .restaurantInfo .infoList .subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.cardContainer .details .restaurantInfo .contact {
+  font-size: 14px;
+}
+
+.cardContainer .details .restaurantInfo .contact svg {
+  font-size: 18px;
+}
+
+.cardContainer .actionContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 5px 10px;
+}
+
+.cardContainer .actionContainer .action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  gap: 3px;
+  letter-spacing: 1px;
+}
+
+.cardContainer .actionContainer .action svg {
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .cardContainer {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+  }
+  .cardContainer .restaurantImg {
+    aspect-ratio: 16/9;
+  }
+  .cardContainer .details {
+    padding: 5px;
+    gap: 5px;
+  }
+  .cardContainer .details .restaurantName {
+    font-size: 16px;
+  }
+  .cardContainer .details .tagContainer .tag {
+    letter-spacing: 1px;
+  }
+  .cardContainer .details .restaurantStatus .specialText {
+    font-size: 16px;
+  }
+  .cardContainer .details .restaurantInfo {
+    gap: 5px;
+  }
+  .cardContainer .details .restaurantInfo .infoList {
+    font-size: 14px;
+  }
+  .cardContainer .details .restaurantInfo .infoList .subtitle {
+    font-size: 14px;
+    display: none;
+  }
+  .cardContainer .actionContainer {
+    padding: 0 5px;
+  }
+  .cardContainer .actionContainer .action {
+    gap: 3px;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .cardContainer {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+  .cardContainer .restaurantImg {
+    aspect-ratio: 16/9;
+  }
+  .cardContainer .details {
+    padding: 5px;
+    gap: 5px;
+  }
+  .cardContainer .details .restaurantName {
+    font-size: 14px;
+  }
+  .cardContainer .details .tagContainer .tag {
+    letter-spacing: 1px;
+    font-size: 12px;
+  }
+  .cardContainer .details .restaurantStatus .specialText {
+    font-size: 14px;
+  }
+  .cardContainer .details .restaurantInfo {
+    gap: 5px;
+  }
+  .cardContainer .details .restaurantInfo .infoList {
+    font-size: 14px;
+  }
+  .cardContainer .actionContainer {
+    padding: 0 5px;
+  }
+  .cardContainer .actionContainer .action {
+    gap: 3px;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .cardContainer .restaurantImg {
+    aspect-ratio: 20/9;
+  }
+}
+
+.smallCard {
+  width: 100px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  background-color: white;
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin: auto;
+  padding: 5px;
+  z-index: 1;
+}
+
+.smallCard:hover {
+  z-index: 100;
+}
+
+.smallCard:hover .smallImg {
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+}
+
+.smallCard:hover .circle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 101;
+  margin: auto;
+  border-radius: 50%;
+  width: 50%;
+  height: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: rgba(26, 80, 73, 0.5);
+  color: #59c9bf;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.smallCard .circle {
+  display: none;
+}
+
+.smallCard .smallTitle {
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  word-break: break-word;
+}
+
+.smallCard .imgContainer {
+  width: 100%;
+  position: relative;
+}
+
+.smallCard .smallImg {
+  width: 100%;
+  aspect-ratio: 4/3;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
+  position: relative;
+}
+
+.smallCard .ratingContainer {
+  width: 100%;
+}
+
+.smallCard .MuiRating-root {
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  .smallCard {
+    display: none;
+  }
+}
+/*# sourceMappingURL=style.css.map */
